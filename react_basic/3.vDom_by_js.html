@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- compatible with mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Hello React!</title>
+</head>
+<body>
+    <div id="test" ></div>
+
+    <!-- 引入的时候有顺序，先引核心库，再 react-dom，最后 babel -->
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <!-- 此处无需 babel -->
+
+    <!-- 表示这里写的是 jsx，依赖 babel 去翻译成 js，不能不写，不写默认 js -->
+    <script>
+        // 创建虚拟 DOM，然后渲染到页面,   document.createElement 是创建真实 DOM 的
+        const VDOM = React.createElement('h1', {id: 'title'}, 'Hello React!')
+        ReactDOM.render(VDOM, document.getElementById('test')) // react 没有提供选择器
+        // render 不是追加，render 两个会覆盖
+    </script>
+</body>
+</html>
