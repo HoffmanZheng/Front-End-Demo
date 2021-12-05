@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test" ></div>
+
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+
+    <script type="text/babel">
+        class Weather extends React.Component {
+            // 有状态的组件
+            constructor(props) {
+                super(props)
+                this.state = { isHot: true, wind: '大风' }
+                this.changeWeather = this.changeWeather.bind(this)
+                // 把原型上的 changeWeather 方法绑定后给实例自身的 changeWeather 方法
+            }
+            // react 中事件函数 是驼峰形式
+            render() {
+                // 这里并不是通过实例调用，而是通过实例找到了方法，把方法给了 onClick 做回调函数罢了，所以 this 会报错
+                return <h2 onClick={this.changeWeather}>Today is {this.state.isHot? 'hot' : 'cold'}, {this.state.wind}!</h2>
+            }
+
+            // 通过实例调用时，this 才指向实例
+            changeWeather() {
+                // babel 开启严格模式后，外面函数的 this 拿不到实例对象的，只能拿到 window
+                // 谁调用，this 就指向谁 
+                console.log(this)
+                this.setState({isHot: !this.state.isHot})
+            }
+        }
+
+        ReactDOM.render(<Weather/>, document.getElementById('test'))
+
+        
+    </script>
+</body>
+</html>

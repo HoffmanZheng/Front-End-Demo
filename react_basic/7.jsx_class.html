@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+         class Person {
+             constructor(name, age) {
+                 this.name = name
+                 this.age = age
+             }
+
+             speak() {
+                 console.log(`My name is ${this.name}, i'm ${this.age} years old.`)
+             }
+         }
+
+         class Student extends Person {
+            constructor(name, age, grade) {
+                super(name, age)  // 还必须得先调用 super 才行
+                this.grade = grade
+            }
+
+            speak() {
+                console.log(`My name is ${this.name}, i'm ${this.age} years old, my grade is ${this.grade}`)
+            }
+
+            learn() {
+                console.log('i am learning!')
+            }
+         }
+
+         const p1 = new Person('hoffman', 22)
+         const p2 = new Person('lily', 18)
+         const s1 = new Student('vincent', 12, '高一')
+
+         console.log(p1)
+         console.log(p2)
+         console.log(s1)
+         p1.speak()
+         p2.speak()
+         s1.speak()
+         s1.learn()
+     </script>
+</body>
+</html>
