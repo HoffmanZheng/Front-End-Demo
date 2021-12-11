@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test1" ></div>
+
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        class Demo extends React.Component{
+
+            myRef1 = React.createRef()
+            myRef2 = React.createRef()
+
+            render() {
+                return (
+                    // this 往外找，render() 的this 是类实例
+                    // 箭头函数左侧就一个参数可以省略括号，右侧就一行可以省略花括号
+                    <div>
+                        {/* 不是回调，但会自动把节点放到对应的 ref 容器中 */}
+                        <input ref={this.myRef1} type="text" placeholder="点击按钮提示数据"></input>&nbsp;
+                        <button onClick={this.showData}>点我提示左边的数据</button>&nbsp;
+                        <input ref={this.myRef2} onBlur={this.showData2} type="text" placeholder="失去焦点提示数据"></input>
+                    </div>
+                )
+            }
+
+            showData = ()=>{
+                alert(this.myRef1.current.value)
+            }
+
+            showData2 = ()=>{
+                alert(this.myRef2.current.value)
+            }
+        }
+        ReactDOM.render(<Demo/>, document.getElementById('test1'))
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test1" ></div>
+
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        class Demo extends React.Component{
+            render() {
+                return (
+                    // this 往外找，render() 的this 是类实例
+                    // 箭头函数左侧就一个参数可以省略括号，右侧就一行可以省略花括号
+                    <div>
+                        <input ref={currentNode=>this.input1 = currentNode} type="text" placeholder="点击按钮提示数据"></input>&nbsp;
+                        <button onClick={this.showData}>点我提示左边的数据</button>&nbsp;
+                        <input ref={currentNode=>this.input2 = currentNode} onBlur={this.showData2} type="text" placeholder="失去焦点提示数据"></input>
+                    </div>
+                )
+            }
+
+            showData = ()=>{
+                const {input1} = this
+                alert(input1.value)
+            }
+
+            showData2 = ()=>{
+                const{input2} = this
+                alert(input2.value)
+            }
+        }
+        ReactDOM.render(<Demo/>, document.getElementById('test1'))
+    </script>
+</body>
+</html>
