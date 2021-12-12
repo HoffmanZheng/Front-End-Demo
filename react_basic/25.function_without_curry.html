@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="test1" ></div>
+
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+
+    <script type="text/babel">
+        class Login extends React.Component{
+            state = {   // 初始化组件
+                username: "",
+                password: ""
+            }
+
+            saveFormData = (dataType, value)=>{
+                this.setState({[dataType]: value})
+            }
+
+            render() {
+                return (
+                    <div>
+                        <form action="www.baidu.com" onSubmit={this.submitLogin}>
+                            {/* ref 回调放进去的是标签，还要继续调用 value */}
+                            <input onChange={event => this.saveFormData("username", event.target.value)} type="text" name="username"></input>
+                            <input onChange={event => this.saveFormData("password", event.target.value)} type="password" name="password"></input>
+                            <button>submit</button>
+                        </form>
+                    </div>
+                )
+            }
+
+            submitLogin = (event)=> {
+                // 禁止 form 表单自动提交
+                event.preventDefault()
+                const {username, password} = this.state
+                alert(`username: ${username}, password: ${password}`)
+            }
+        }
+
+        ReactDOM.render(<Login/>, document.getElementById('test1'))
+    </script>
+    
+</body>
+</html>
