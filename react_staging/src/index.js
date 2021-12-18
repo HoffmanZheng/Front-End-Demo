@@ -1,8 +1,8 @@
+// 引入 react 核心库
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import './index.css';
+import App from './App.js';  // .js 后缀是可以省略的，.css 不能省略
 
 ReactDOM.render(
   // 和 ES5 严格模式没有关系，只是检查 App 以及它的子组件是否合理
@@ -13,7 +13,3 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
