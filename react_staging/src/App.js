@@ -1,17 +1,22 @@
-import React from 'react';
-import Hello from './component/hello/Hello'
-import Welcome from './component/welcome';
+import React, { Component } from 'react';
+import './App.css'
+import Header from './component/Header'
+import List from './component/List'
+import Item from './component/Item'
+import Footer from './component/Footer'
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <Hello/>
-        <Welcome /> 
-      </div>
-    );
-  }
+class App extends Component {
+    render() {
+        return (
+            <div className='todo-container'>
+                <div className='todo-wrap'>
+                    <Header/>
+                    <List/>
+                    <Footer/>
+                </div>
+            </div>
+        );
+    }
 }
 
-// 暴露之后才能在别的文件中被引入
 export default App;
