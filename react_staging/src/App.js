@@ -17,13 +17,22 @@ class App extends Component {
         this.setState({todo_list: new_todo_list})
     }
 
+    changeDone = (id, done) => {
+        const {todo_list} = this.state
+        const new_todo_list = todo_list.map((todo)=>{
+            if (todo.id === id) return {...todo, done: done}
+            else return todo
+        })
+        this.setState({todo_list: new_todo_list})
+    }
+
     render() {
         return (
             <div className='todo-container'>
                 <div className='todo-wrap'>
                     {/* 把函数传给 Header，用于向 App 中的状态添加成员 */}
                     <Header addTodo={this.addTodo} />
-                    <List todo_list={this.state.todo_list}/>
+                    <List todo_list={this.state.todo_list} changeDone={this.changeDone}/>
                     <Footer/>
                 </div>
             </div>
