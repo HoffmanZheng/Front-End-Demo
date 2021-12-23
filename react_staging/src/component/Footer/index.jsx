@@ -17,13 +17,16 @@ export default class Footer extends Component {
     }
 
     render() {
+        const { todo_list } = this.props
+        const totalDone = todo_list.reduce((pre, current)=>pre+(current.done?1:0),0)
+
         return (
             <div className='todo-footer'>
                 <label>
-                    <input type="checkbox" onChange={this.handleAllCheck}/>
+                    <input type="checkbox" checked={ todo_list.length === totalDone && totalDone > 0} onChange={this.handleAllCheck}/>
                 </label>
                 <span>
-                    <span>已完成0</span> / 全部2
+                    <span>已完成 {totalDone} </span> / 全部 {todo_list.length}
                 </span>
                 <button onClick={this.handleClear} className='btn btn-danger'>清除已完成任务</button>
             </div>
