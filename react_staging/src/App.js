@@ -3,7 +3,7 @@ import axios from 'axios'
 
 class App extends Component {
     getData = () => {
-        axios.get('http://www.baidu.com').then(
+        axios.get('http://localhost:3000/students').then(
             response => {
                 console.log('successfully')
             },
