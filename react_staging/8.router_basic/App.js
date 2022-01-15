@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {NavLink, BrowserRouter, Route, Routes} from 'react-router-dom'
+import {Link, BrowserRouter, Route, Routes} from 'react-router-dom'
 import Home from './pages/home'
 import About from './pages/about';
 
@@ -19,11 +19,8 @@ class App extends Component {
                     <div className='row'>
                         <div className='col-xs-2 col-xs-offset-2'>
                             <div className='list-group'>
-                                {/* Link 换成 NavLink，点击自动追加 active 高亮 */}
-                                {/* 点谁就给谁加上这个类名的样式 */}
-                                {/* 新版本的 react-router-dom 已经不使用 activeClassName 了 */}
-                                <NavLink className={({isActive}) => 'list-group-item' + (isActive ?' importantat' : '')} to="/home">home</NavLink>
-                                <NavLink className={({isActive}) => 'list-group-item' + (isActive ?' importantat' : '')} to="/about">about</NavLink>
+                                <Link className='list-group-item' to="/home">home</Link>
+                                <Link className='list-group-item' to="/about">about</Link>
                             </div>
                         </div>
                         <div className='col-xs-6'>
