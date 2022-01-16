@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import MyNavLink from './component/myNavLink'
+import MyNavLink from './/component/myNavLink'
 import Home from './pages/home'
 import About from './pages/about';
 
