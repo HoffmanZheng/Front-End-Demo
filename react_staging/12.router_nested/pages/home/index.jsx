@@ -23,8 +23,6 @@ export default class Home extends Component {
                         <Route path='/home/message' component={Message} />
                     </Switch>
                 </div>
-                <div>前进</div>
-                <div>后退</div>
             </div>
         )
     }
