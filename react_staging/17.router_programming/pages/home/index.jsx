@@ -5,6 +5,14 @@ import Message from './message'
 import {Route, Switch} from 'react-router-dom'
 
 export default class Home extends Component {
+    forward = () => {
+        this.props.history.goForward()
+    }
+
+    back = () => {
+        this.props.history.goBack()
+    }
+
     render() {
         return (
             <div>
@@ -12,10 +20,10 @@ export default class Home extends Component {
                     home
                 </h3>
                 <ul className='nav nav-tabs'>
-                    <li>
+                    <li key='news'>
                         <MyNavLink to='/home/news'>News</MyNavLink>
                     </li>
-                    <li>
+                    <li key='message'>
                         <MyNavLink to='/home/message'>Message</MyNavLink>
                     </li>
                 </ul>
@@ -25,7 +33,12 @@ export default class Home extends Component {
                         <Route path='/home/message' component={Message} />
                     </Switch>
                 </div>
+                <div>
+                    <button onClick={this.forward}>前进</button>
+                    <button onClick={this.back}>后退</button>
+                </div>
             </div>
+
         )
     }
 }
