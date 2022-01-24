@@ -11,20 +11,20 @@ export default class Home extends Component {
                 <h3>
                     home
                 </h3>
-                <div>
-                    <MyNavLink to='/home/news'>News</MyNavLink>
-                </div>
-                <div>
-                    <MyNavLink to='/home/message'>Message</MyNavLink>
-                </div>
+                <ul className='nav nav-tabs'>
+                    <li>
+                        <MyNavLink to='/home/news'>News</MyNavLink>
+                    </li>
+                    <li>
+                        <MyNavLink to='/home/message'>Message</MyNavLink>
+                    </li>
+                </ul>
                 <div>
                     <Switch>
                         <Route path='/home/news' component={News} />
                         <Route path='/home/message' component={Message} />
                     </Switch>
                 </div>
-                <div>前进</div>
-                <div>后退</div>
             </div>
         )
     }
