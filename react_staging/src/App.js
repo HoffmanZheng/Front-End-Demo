@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { DatePicker, Button, Tooltip } from 'antd';
 import { SearchOutlined, AndroidOutlined, GoogleOutlined } from '@ant-design/icons';
-import 'antd/dist/antd.css'
+
 
 import EditableStr from './component/editable_str'
 
