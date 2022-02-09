@@ -1,36 +1,38 @@
 import React, { Component } from 'react';
-import store from './redux/store'
 
 class App extends Component {
 
-    componentDidMount() {
-        store.subscribe( () => {
-            this.setState({})
-        })
-    }
+    state = { sum: 0}
 
     add = () => {
         const {num} = this
-        store.dispatch({type: 'increment', data: num.value * 1})
+        const {sum} = this.state
+        const new_sum = sum + num.value * 1
+        this.setState({sum: new_sum})
     }
 
     subtract = () => {
         const {num} = this
-        store.dispatch({type: 'decrement', data: num.value * 1})
+        const {sum} = this.state
+        const new_sum = sum - num.value * 1
+        this.setState({sum: new_sum})
     }
 
     addIfOdd = () => {
         const {num} = this
-        const sum = store.getState()
+        const {sum} = this.state
         if (sum % 2 == 1) {
-            store.dispatch({type: 'increment', data: num.value * 1})
+            const new_sum = sum + num.value * 1
+            this.setState({sum: new_sum})
         }
     }
 
     ayncAdd = () => {
         setTimeout(()=>{
             const {num} = this
-            store.dispatch({type: 'increment', data: num.value * 1})
+            const {sum} = this.state
+            const new_sum = sum + num.value * 1
+            this.setState({sum: new_sum})
         }, 500)
     }
 
@@ -38,7 +40,7 @@ class App extends Component {
         return (
             <div>
                 <div>
-                    当前求和结果为：{store.getState()}
+                    当前求和结果为：{this.state.sum}
                 </div>
                 <div>
                     <select ref={c => this.num = c}>
