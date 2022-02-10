@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import store from './redux/store'
+import {createIncrementAction, createDecrementAction} from './redux/action_creator'
 
 class App extends Component {
+    // 可以写到 index.js 中，这样有多个组件时，
     componentDidMount() {
         store.subscribe( () => {
             this.setState({})
@@ -10,26 +12,26 @@ class App extends Component {
 
     add = () => {
         const {num} = this
-        store.dispatch({type: 'increment', data: num.value * 1})
+        store.dispatch(createIncrementAction(num.value * 1))
     }
 
     subtract = () => {
         const {num} = this
-        store.dispatch({type: 'decrement', data: num.value * 1})
+        store.dispatch(createDecrementAction(num.value * 1))
     }
 
     addIfOdd = () => {
         const {num} = this
         const sum = store.getState()
         if (sum % 2 == 1) {
-            store.dispatch({type: 'increment', data: num.value * 1})
+            store.dispatch(createIncrementAction(num.value * 1))
         }
     }
 
     ayncAdd = () => {
         setTimeout(()=>{
             const {num} = this
-            store.dispatch({type: 'increment', data: num.value * 1})
+            store.dispatch(createIncrementAction(num.value * 1))
         }, 500)
     }
 
