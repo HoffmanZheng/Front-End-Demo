@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import {createIncrementAction, createDecrementAction, createAynsIncrementAction} from '../../redux/action_creator'
+import {createIncrementAction, createDecrementAction, createAynsIncrementAction} from '../../redux/actions/count'
 import React, { Component } from 'react';
 
 class Count extends Component {
@@ -29,7 +29,9 @@ class Count extends Component {
   render() {
     return <div>
                 <div>
-                    当前求和结果为：{this.props.sum}
+                    <h3>
+                        当前求和结果为：{this.props.sum}，当前有 {this.props.personList.length} 个人
+                    </h3>
                 </div>
                 <div>
                     <select ref={c => this.num = c}>
@@ -51,7 +53,7 @@ class Count extends Component {
 // mapDispatchToProps 函数用于传递操作状态的方法
 
 const CountContainer = connect(
-    state => ({sum: state}), 
+    state => ({sum: state.count, personList: state.person}), 
     // dispatch => ({
     //     add: num => dispatch(createIncrementAction(num)), 
     //     subtract: num => dispatch(createDecrementAction(num)),
