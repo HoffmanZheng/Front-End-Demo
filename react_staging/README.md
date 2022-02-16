@@ -1,5 +1,19 @@
 # React 脚手架
 
+## 零、如何开始
+
+1. 新建一个 React 脚手架项目：Install create-react-app globally `npm install -g create-react-app`，initialize your application `create-react-app <AppName>`
+
+2. 运行本项目：
+
+```powershell
+git clone https://github.com/HoffmanZheng/Front-End-Demo.git
+cd react_staging
+npm install   // install all dependencies
+npm start     // start project
+npm run build    // build for production
+```
+
 ## 一、todoList 案例相关知识点
 
 1. 拆分组件、实现静态组件，注意：className、style的写法
