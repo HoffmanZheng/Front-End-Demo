@@ -11,8 +11,7 @@ program.command('add')
   .description('Add a new task to the todo list')
   .argument('<taskName>', 'task to add')
   .action((taskName) => {
-    console.log(taskName);
-    index.add(taskName.toString())
+    index.add(taskName)
   });
 
 program.parse();
