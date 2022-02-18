@@ -16,8 +16,8 @@ const index = {
 
     async clearDone() {
         const list = await db.read()
-        list.filter(task => task.dome === true)
-        await db.write(list)
+        result = list.filter(task => task.done === false)
+        await db.write(result)
     },
 
     async showAll() {
@@ -40,36 +40,80 @@ const index = {
             },
         ])
         .then(answer => {
-            console.log(answer.index)
             const index = parseInt(answer.index)
             if (index >= 0) {
                 inquirer.prompt([
                     {
                     type: 'list',
-                    name: 'index',
-                    message: 'Select a task to operate',
+                    name: 'operation',
+                    message: 'Select a operation',
                     choices: [
-                        ...list.map((task, index) => {
-                            return {name: `${task.done? '[x]':'[ ]'} ${index + 1} - ${task.name}`, value: index.toString()}
-                        }),
+                        {name: 'done', value: 'done'},
+                        {name: 'not finish', value: 'unfinished'},
+                        {name: 'change name', value: 'changeName'},
                         new inquirer.Separator(),
-                        {name: 'Create a new task', value: -1},
                         {name: 'Exit', value: -2},
                     ],
                     },
                 ])
+                .then(answer => {
+                    console.log(answer.operation)
+                    switch(answer.operation) {
+                        case 'done' :
+                            this.done(index, true);
+                            break;
+                        case 'unfinished' :
+                            this.done(index, false);
+                            break;
+                        case 'changeName' :
+                            inquirer.prompt([
+                                {
+                                    type: 'input',
+                                    name: 'taskName',
+                                    message: 'Please enter new task name'
+                                }
+                            ])
+                            .then(answer => {
+                                this.changeName(index, answer.taskName)
+                            }) 
+                            break;
+                    }
+                })
             } else if (index === -1) {
-
+                inquirer.prompt([
+                    {
+                        type: 'input',
+                        name: 'taskName',
+                        message: 'Please enter task name to create'
+                    }
+                ])
+                .then(answer => {
+                    this.add(answer.taskName)
+                }) 
+            } else if (index === -2) {
+                console.log('Exit')
             }
         });        
     },
 
-    async done(isDone) {
-
+    async done(taskIndex, isDone) {
+        const list = await db.read()
+        list.map((task, index) => {
+            if (index === taskIndex) {
+                task.done = isDone
+            }
+        })
+        db.write(list)
     },
 
-    async changeName() {
-
+    async changeName(taskIndex, taskName) {
+        const list = await db.read()
+        list.map((task, index) => {
+            if (index === taskIndex) {
+                task.name = taskName
+            }
+        })
+        db.write(list)
     },
 }
 
