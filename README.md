@@ -11,3 +11,9 @@
 [react_redux](https://github.com/HoffmanZheng/Front-End-Demo/tree/main/react_redux) 中为 redux 部分，对应课程 097 - 115 课时
 
 [react_extension](https://github.com/HoffmanZheng/Front-End-Demo/tree/main/react_extension) 中为 react 扩展部分，对应课程 116 - 126 课时
+
+## Node.js 全解及 Next.js 框架实践
+
+[课程地址](https://xiedaimala.com/courses/f0e0726e-6073-4b23-b590-387ff879f64a/random/4874cd73d1?#/common)
+
+[node.js](https://github.com/HoffmanZheng/Front-End-Demo/tree/main/node.js)
