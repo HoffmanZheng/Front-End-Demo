@@ -9,12 +9,13 @@
 ## How to start with source code
 
 ```powershell
-git clone https://github.com/HoffmanZheng/Front-End-Demo.git && cd node.js/file_based_todo_list    // clone and get the source code
-node -v  // node version >= 14, nvm recommended
-yarn     // install all the dependencies
+# clone and get the source code
+git clone https://github.com/HoffmanZheng/Front-End-Demo.git && cd node.js/file_based_todo_list    
+node -v                     # node version >= 14, nvm recommended
+yarn                        # install all the dependencies
 node cli.js -h    
-node cli.js add <taskName>  // add a task to the todo list
-node cli.js  // get the todo list for further operation
+node cli.js add <taskName>  # add a task to the todo list
+node cli.js                 # get the todo list for further operation
 ```
 
 ## Start with npm
@@ -23,7 +24,7 @@ node cli.js  // get the todo list for further operation
 yarn global add cli_based_todo_list
 todo --version
 todo -h
-todo add <taskName>    // add a task to the todo list
-todo                   // get the todo list for further operation
+todo add <taskName>    # add a task to the todo list
+todo                   # get the todo list for further operation
 ```
 
