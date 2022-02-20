@@ -14,7 +14,7 @@ node -v  // node version >= 14, nvm recommended
 yarn     // install all the dependencies
 node cli.js -h    
 node cli.js add <taskName>  // add a task to the todo list
-node cli.js  // add a task to the todo list
+node cli.js  // get the todo list for further operation
 ```
 
 ## Start with npm
@@ -24,6 +24,6 @@ yarn global add cli_based_todo_list
 todo --version
 todo -h
 todo add <taskName>    // add a task to the todo list
-todo                   // add a task to the todo list
+todo                   // get the todo list for further operation
 ```
 
