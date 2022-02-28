@@ -16,4 +16,9 @@
 
 [课程地址](https://xiedaimala.com/courses/f0e0726e-6073-4b23-b590-387ff879f64a/random/4874cd73d1?#/common)
 
-[node.js](https://github.com/HoffmanZheng/Front-End-Demo/tree/main/node.js)
+[node.js_basic](https://github.com/HoffmanZheng/Front-End-Demo/tree/main/node.js_basic) 中为 Node.js 全解部分，对应课程 01 - 11 节
+
+[node.js_web](https://github.com/HoffmanZheng/Front-End-Demo/tree/main/node.js_web) 中为 Node.js Web 部分，对应课程 12 - 18 节
+
+[node.js_project](https://github.com/HoffmanZheng/Front-End-Demo/tree/main/node.js_project) 中为 Node.js 项目实战部分，对应课程 19 - 27 节
+
