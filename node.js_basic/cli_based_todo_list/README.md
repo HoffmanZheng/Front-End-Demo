@@ -2,9 +2,7 @@
 
 ## Function overview
 
-![](https://github.com/HoffmanZheng/Front-End-Demo/blob/main/images/node.js-todo-list-1.png)
-
-![](https://github.com/HoffmanZheng/Front-End-Demo/blob/main/images/node.js-todo-list-2.png)
+![](https://github.com/HoffmanZheng/Front-End-Demo/blob/main/images/cli_based_todo_list.gif)
 
 ## How to start with source code
 
