@@ -14,6 +14,8 @@ yarn                        # install all the dependencies
 node cli.js -h    
 node cli.js add <taskName>  # add a task to the todo list
 node cli.js                 # get the todo list for further operation
+node cli.js clearDone       # clear all the finished task
+node cli.js clearAll        # clear all tasks
 ```
 
 ## Start with npm
@@ -24,5 +26,7 @@ todo --version
 todo -h
 todo add <taskName>    # add a task to the todo list
 todo                   # get the todo list for further operation
+todo clearDone         # clear all the finished task
+todo clearAll          # clear all tasks
 ```
 
