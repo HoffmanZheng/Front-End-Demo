@@ -21,7 +21,7 @@ node cli.js clearAll        # clear all tasks
 ## Start with npm
 
 ```powershell
-yarn global add cli_based_todo_list
+yarn global add cli_based_todo_list   # npm install -g cli_based_todo_list
 todo --version
 todo -h
 todo add <taskName>    # add a task to the todo list

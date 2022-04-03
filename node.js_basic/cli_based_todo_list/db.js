@@ -6,10 +6,10 @@ const dbPath = p.join(home, '.todo')
 
 const db = {
     // 读取文件并返回列表
-    read() {
+    read(path = dbPath) {
         return new Promise((resolve, reject) => {
             let list = []
-            readFile(dbPath, {flag: 'a+'}, (err, data) => {
+            readFile(path, {flag: 'a+'}, (err, data) => {
                 if (err) reject(err);
                 try {
                     list = JSON.parse(data.toString())
