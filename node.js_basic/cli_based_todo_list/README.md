@@ -10,7 +10,7 @@
 
 ```powershell
 # clone and get the source code
-git clone https://github.com/HoffmanZheng/Front-End-Demo.git && cd node.js/file_based_todo_list    
+git clone https://github.com/HoffmanZheng/Front-End-Demo.git && cd node.js_basic/file_based_todo_list    
 node -v                     # node version >= 14, nvm recommended
 yarn                        # install all the dependencies
 node cli.js -h    

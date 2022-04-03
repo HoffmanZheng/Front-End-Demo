@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#! /usr/bin/env node
 const { Command } = require('commander');
 const program = new Command();
 const index = require('./index')
