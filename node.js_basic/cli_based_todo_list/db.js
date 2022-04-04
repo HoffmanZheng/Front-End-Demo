@@ -22,7 +22,7 @@ const db = {
     },
 
     // 将列表参数写入文件
-    write(list) {
+    write(list, path = dbPath) {
         return new Promise((resolve, reject) => {
             writeFile(dbPath, JSON.stringify(list) + '\n', (err) => {
                 if (err) reject(err);
