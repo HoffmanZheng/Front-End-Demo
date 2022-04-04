@@ -24,8 +24,8 @@ const db = {
     // 将列表参数写入文件
     write(list, path = dbPath) {
         return new Promise((resolve, reject) => {
-            writeFile(dbPath, JSON.stringify(list) + '\n', (err) => {
-                if (err) reject(err);
+            writeFile(path, JSON.stringify(list) + '\n', (err) => {
+                if (err) reject(err.message);
                 resolve();
             })
         })
