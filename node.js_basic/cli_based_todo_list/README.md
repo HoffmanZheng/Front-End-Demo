@@ -9,8 +9,9 @@
 ```powershell
 # clone and get the source code
 git clone https://github.com/HoffmanZheng/Front-End-Demo.git && cd node.js_basic/file_based_todo_list    
-node -v                     # node version >= 14, nvm recommended
+node -v                     # node version >= 10, nvm recommended
 yarn                        # install all the dependencies
+yarn test                   # run the spec test
 node cli.js -h    
 node cli.js add <taskName>  # add a task to the todo list
 node cli.js                 # get the todo list for further operation
