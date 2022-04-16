@@ -1,41 +1,41 @@
 import * as http from 'http';
 import * as fs from 'fs';
-import path from 'path';
+import p from 'path';
+import * as url from 'url';
 
-const server: http.Server = http.createServer(); 
-const staticPath = path.resolve(__dirname, 'static')
+const server: http.Server = http.createServer();
+const staticPath = p.resolve(__dirname, 'static')
 
-server.on('request', (request, response)=> {
-    const url = request.url
-
-    switch (url) {
-        case '/index.html':
-            response.setHeader('Content-type', 'text/html; charset=utf-8')
-            fs.readFile(path.resolve(staticPath, 'index.html'), (err, data) => {
-                if (err) throw err;
-                response.end(data);
-            })
-            break;
-        case '/style.css':
-            response.setHeader('Content-type', 'text/css; charset=utf-8')
-            fs.readFile(path.resolve(staticPath, 'style.css'), (err, data) => {
-                if (err) throw err;
-                response.end(data);
-            })
-            break;
-        case '/main.js':
-            response.setHeader('Content-type', 'application/x-javascript; charset=utf-8')
-            fs.readFile(path.resolve(staticPath, 'main.js'), (err, data) => {
-                if (err) throw err;
-                response.end(data);
-            })
-            break;
-        default:
-            response.end('welcome')
+server.on('request', (request, response) => {
+    const requestUrl = request.url!
+    const pathname = url.parse(requestUrl).pathname!;
+    let filePath = pathname.substring(1)
+    if (filePath === "") {
+        filePath = 'index.html'
     }
 
-
-
+    fs.readFile(p.resolve(staticPath, filePath), (err, data) => {
+        if (err) {
+            console.log(err)
+            if (err.errno === -2) {
+                response.statusCode = 404
+                fs.readFile(p.resolve(staticPath, '404.html'), (err, data) => {
+                    if (err) {
+                        response.end("File does not exist.")
+                    } else {}
+                    response.end(data)
+                })
+            } else if (err.errno === -21) {
+                response.statusCode = 403
+                response.end("Permission denied.")
+            } else {
+                response.statusCode = 500
+                response.end("Server is busy, please try again later.")
+            }
+        } else {
+            response.end(data);
+        }
+    })
 })
 
 server.listen(8888, () => {
