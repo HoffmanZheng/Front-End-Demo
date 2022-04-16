@@ -7,6 +7,12 @@ const server: http.Server = http.createServer();
 const staticPath = p.resolve(__dirname, 'static')
 
 server.on('request', (request, response) => {
+    if (request.method !== 'GET') {
+        response.statusCode = 405
+        response.end("Method not supported.")
+        return
+    }
+
     const requestUrl = request.url!
     const pathname = url.parse(requestUrl).pathname!;
     let filePath = pathname.substring(1)
@@ -33,6 +39,7 @@ server.on('request', (request, response) => {
                 response.end("Server is busy, please try again later.")
             }
         } else {
+            response.setHeader("Cache-Control", "public, max-age=3600")
             response.end(data);
         }
     })
