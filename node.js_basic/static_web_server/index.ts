@@ -45,6 +45,8 @@ server.on('request', (request, response) => {
     })
 })
 
-server.listen(8888, () => {
-    console.log(server.address());
-});
+export function startServer() {
+    server.listen(8888, () => {
+        console.log(server.address());
+    })
+};

@@ -1,6 +1,7 @@
 import { Command } from 'commander';
 const program = new Command();
 import * as packgeFile from './package.json';
+import * as index from './index'
 
 // -p -d
 
@@ -12,6 +13,7 @@ program
   .option('-d, --directory <string>', 'static resource directory to serve, default current path', '.')
   .action((options: any) => {
       console.log(options.port, options.directory)
+      index.startServer();
   });
   
 program.parse();
